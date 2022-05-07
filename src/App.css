@@ -1,0 +1,71 @@
+body {
+  background-color: #caacac;
+  box-sizing: border-box;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+  color: rgb(83, 80, 80);
+  font-size: 3em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.pokecard {
+  display: flex;
+
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  min-width: 280px;
+  font-size: 1.1em;
+
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  align-items: stretch;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(251, 227, 227);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.pokecard:hover {
+  transform: scale(1.05);
+  transition: 0.5s ease-out;
+}
+
+.name::before {
+  content: '';
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  background: #160575;
+  margin-right: 10px;
+  margin-bottom: 2px;
+}
+
+.name {
+  color: #160575;
+}
+
+.name::after {
+  content: '';
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  background: #160575;
+  margin-left: 10px;
+  margin-bottom: 2px;
+}
+
+.weight {
+  width: 140px;
+  color: rgb(33, 107, 25);
+}
