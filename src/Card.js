@@ -1,6 +1,7 @@
 import React from 'react';
 import CardPokemon from './CardPokemon';
 import pokemons from './data';
+const nextBtn = document.getElementById("nextBtn")
 
 class Card extends React.Component {
 
@@ -14,28 +15,18 @@ class Card extends React.Component {
 
   pokeType = (event) => {
     console.log(event.target.innerText)
-    if (event.target.innerText === "Fire") {
-      this.setState(() => ({
-        type: "Fire"
-      }))
-
-    }
-    if (event.target.innerText === "Psychic") {
-      this.setState(() => ({
-        type: "Psychic"
-      }))
-    }
-    if (event.target.innerText === "Electric") {
-      this.setState(() => ({
-        type: "Electric"
-      }))
-    }
     if (event.target.innerText === "all") {
       this.setState(() => ({
-        type: ""
+        type: "",
+        index: 0
       }))
     }
-
+    else {
+      this.setState(() => ({
+        type: event.target.innerText,
+        index: 0,
+      }))
+    }
   }
 
   filterPokemon = () => {
@@ -52,6 +43,8 @@ class Card extends React.Component {
         index: 0
       }))
     }
+
+
     this.setState((initial) => ({
       index: initial.index + 1
     }))
@@ -63,6 +56,7 @@ class Card extends React.Component {
     console.log('poke2', pokemons[ 1 ]);
     const arrayIds1 = this.filterPokemon().map((item) => item.id)
     console.log('id', arrayIds1);
+    console.log('length', this.filterPokemon().length);
 
     return (
       <>
@@ -71,7 +65,7 @@ class Card extends React.Component {
         )) }
 
         <div>
-          <button onClick={ this.handleClick } style={ { backgroundColor: "gray" } }>Próximo Pokémon</button>
+          <button onClick={ this.handleClick } style={ { backgroundColor: "gray" } } id="nextBtn">Próximo Pokémon</button>
           <button onClick={ this.pokeType } >Fire</button>
           <button onClick={ this.pokeType } style={ { backgroundColor: "rgb(63, 63, 163)" } } >Psychic</button>
           <button onClick={ this.pokeType } style={ { backgroundColor: "rgb(207, 226, 1)" } } >Electric</button>
