@@ -8,9 +8,7 @@ body {
 }
 
 section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  margin: 0 auto;
   padding: 20px;
 }
 h1 {
@@ -30,6 +28,7 @@ h1 {
   margin: 10px;
   text-align: center;
   min-width: 150px;
+  max-width: 300px;
   font-size: 1.1em;
 
   font-family: 'Nunito', sans-serif;
@@ -100,4 +99,15 @@ h1 {
   width: 60px;
   margin: 0 auto;
   padding: 3px 8px;
+}
+
+button {
+  padding: 10px 10px;
+  background-color: rgb(183, 50, 50);
+  color: white;
+  border: none;
+  margin: 10px 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: rgb(207, 226, 1);
 }

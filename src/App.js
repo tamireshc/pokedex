@@ -8,7 +8,8 @@ function App() {
     <main>
       <h1>Pokedex</h1>
       <section>
-        <Card pokemons={pokemonsInfo} />
+        <Card pokemons={ pokemonsInfo } />
+
       </section>
     </main>
   );
