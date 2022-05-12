@@ -1,10 +1,8 @@
 import React from 'react';
 import CardPokemon from './CardPokemon';
 import pokemons from './data';
-const nextBtn = document.getElementById("nextBtn")
 
 class Card extends React.Component {
-
   constructor() {
     super()
     this.state = {
@@ -34,7 +32,6 @@ class Card extends React.Component {
       return pokemons.filter((item) => item.type.includes(this.state.type))
     }
     return pokemons
-
   }
 
   handleClick = () => {
@@ -43,33 +40,35 @@ class Card extends React.Component {
         index: 0
       }))
     }
-
-
-    this.setState((initial) => ({
-      index: initial.index + 1
-    }))
-
+    else {
+      this.setState((initial) => ({
+        index: initial.index + 1
+      }))
+    }
   }
 
   render() {
     const { pokemons } = this.props;
     console.log('poke2', pokemons[ 1 ]);
-    const arrayIds1 = this.filterPokemon().map((item) => item.id)
-    console.log('id', arrayIds1);
+    const arrayIds = this.filterPokemon().map((item) => item.id)
+    console.log('id', arrayIds);
     console.log('length', this.filterPokemon().length);
 
     return (
       <>
-        { this.filterPokemon().filter((item) => item.id === arrayIds1[ this.state.index ]).map((item) => (
+        { this.filterPokemon().filter((item) => item.id === arrayIds[ this.state.index ]).map((item) => (
           <CardPokemon key={ item.id } data={ item } />
         )) }
 
         <div>
-          <button onClick={ this.handleClick } style={ { backgroundColor: "gray" } } id="nextBtn">Próximo Pokémon</button>
+          <button onClick={ this.handleClick } style={ { backgroundColor: "#292828" } } id="nextBtn">Próximo Pokémon</button>
           <button onClick={ this.pokeType } >Fire</button>
-          <button onClick={ this.pokeType } style={ { backgroundColor: "rgb(63, 63, 163)" } } >Psychic</button>
+          <button onClick={ this.pokeType } style={ { backgroundColor: "rgb(183, 50, 181)" } } >Psychic</button>
           <button onClick={ this.pokeType } style={ { backgroundColor: "rgb(207, 226, 1)" } } >Electric</button>
-          <button onClick={ this.pokeType } style={ { backgroundColor: "gray" } }>all</button>
+          <button onClick={ this.pokeType } style={ { backgroundColor: "gray" } }>Normal</button>
+          <button onClick={ this.pokeType } style={ { backgroundColor: "#0d1bdb" } }>Dragon</button>
+          <button onClick={ this.pokeType } style={ { backgroundColor: "rgb(63, 63, 163)" } }>Poison</button>
+          <button onClick={ this.pokeType } style={ { backgroundColor: "#292828" } }>all</button>
         </div>
 
       </>
@@ -79,6 +78,6 @@ class Card extends React.Component {
 
 export default Card;
 
-// .filter((item) => item.id === arrayIds[ this.state.index ])
-// .filter((item) => item.type.includes(this.state.type))
+
+
 
